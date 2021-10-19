@@ -23,7 +23,7 @@ ADD . .
 
 #build it ,without Python API
 WORKDIR /openpose/build
-RUN cmake
+RUN cmake \
 	    -DDOWNLOAD_BODY_25_MODEL=ON \
         -DDOWNLOAD_BODY_MPI_MODEL=OFF \
         -DDOWNLOAD_HAND_MODEL=OFF \
