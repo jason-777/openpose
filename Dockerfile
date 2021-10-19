@@ -37,4 +37,4 @@ RUN make -j `nproc`
 WORKDIR /openpose
 
 RUN pip3 install -r requirements.txt
-CMD python3 openposeSvr.py & ./build/examples/openpose/openpose.bin --video examples/media/video.avi --write_json "people_Data" --display 0 --render_pose 0
+CMD python3 openposeSvr.py & ./build/examples/openpose/openpose.bin --video examples/media/video.avi --write_json "people_Data" --display 0 --render_pose 0 & bash

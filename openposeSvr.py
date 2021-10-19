@@ -71,7 +71,8 @@ def run_server():
     things1 = make_openpose_thing()
     
     # create object for webthing server(not using thread) 
-    server = WebThingServer(SingleThing(things1),port=6666)
+    server = WebThingServer(SingleThing(things1),port=6666,disable_host_validation=True)
+    # disable_host_validation for remote access things
     '''
     # If adding more than one thing, use MultipleThings() with a name.
     # In the single thing case, the thing's name will be broadcast.
