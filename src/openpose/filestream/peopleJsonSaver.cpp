@@ -20,7 +20,8 @@ namespace op
         try
         {
             // Record json
-            const auto finalFileName = getNextFileName(fileName) + ".json";
+            // const auto finalFileName = getNextFileName(fileName) + ".json";
+            const auto finalFileName = getNextFileName(1) + ".json";
             savePeopleJson(keypointVector, candidates, finalFileName, humanReadable);
         }
         catch (const std::exception& e)
