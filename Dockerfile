@@ -23,10 +23,18 @@ ADD . .
 
 #build it ,without Python API
 WORKDIR /openpose/build
-RUN cmake .. 
+RUN cmake
+	    -DDOWNLOAD_BODY_25_MODEL=ON \
+        -DDOWNLOAD_BODY_MPI_MODEL=OFF \
+        -DDOWNLOAD_HAND_MODEL=OFF \
+        -DDOWNLOAD_FACE_MODEL=OFF \
+	    .. 
 
 RUN sed -ie 's/set(AMPERE "80 86")/#&/g'  ../cmake/Cuda.cmake && \
     sed -ie 's/set(AMPERE "80 86")/#&/g'  ../3rdparty/caffe/cmake/Cuda.cmake
 #Compilation
 RUN make -j `nproc`
 WORKDIR /openpose
+
+RUN pip3 install -r requirements.txt
+CMD python3 openposeSvr.py & ./build/examples/openpose/openpose.bin --video examples/media/video.avi --write_json "people_Data" --display 0 --render_pose 0

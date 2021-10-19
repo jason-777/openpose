@@ -9,7 +9,6 @@ from webthing import WebThingServer
 from webthing.property import Property
 from webthing.server import SingleThing
 
-from elasticsearch import Elasticsearch
 
 class make_openpose_thing(Thing):
     def __init__(self):
