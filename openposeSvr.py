@@ -26,8 +26,9 @@ class make_openpose_thing(Thing):
                 self,
                 'amount',
                 self.peopleNumber,
+                # no integer property, use Levelproperty, see more in "https://iot.mozilla.org/schemas"
                 metadata={
-                    '@type': 'NumberProperty',
+                    '@type':'LevelProperty',
                     'title': 'peopleNumber',
                     'type': 'integer',
                     'description': 'The current people number',
